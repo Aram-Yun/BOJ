@@ -1,30 +1,25 @@
 #include <stdio.h>
 
 int main(void) {
-  char string[1000000] = {0, };
-  int cnt = 0, last = 0;
-  for(int i = 0; i < 1000000; i++) {
-    if((string[i] = getchar()) == EOF) {
-      if(string[i] != ' ') {
-      last = i - 1;
+  int cnt = 0;
+  char arr[1000001] = {0, };
+  char bin = 0;
+  scanf("%[^\n]s", arr);
+  for(int i = 0; i < 1000001; i++) {
+    if(arr[i] == 0) {
+      printf("%d", cnt);
       break;
+    }
+    else if(arr[i] == ' ') {
+      if(i != 0) {
+        cnt++;
       }
     }
-    if(string[i] == ' ') {
-      if(i == 0) {
-        continue;
-      }
-      else {
+    else {
+      if(arr[(i + 1)] == 0) {
         cnt++;
       }
     }
   }
-  if(string[last] == ' ') {
-    cnt--;
-  }
-  else {
-    cnt++;
-  }
-  printf("%d", cnt);
   return 0;
 }

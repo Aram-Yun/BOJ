@@ -165,3 +165,5 @@ int main(void) {
 	
 	return 0;
 }
+
+// 파이썬 기준 브5였음ㅋㅋ

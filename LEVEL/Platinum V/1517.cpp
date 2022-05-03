@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-int N, ans = 0, arr[500'000], tmp[500'000];
+long long N, ans = 0, arr[500'000], tmp[500'000];
 
 void merge_sort(int a, int b) {
   if(a == b) return;
-  int mid = (a + b) / 2;
+  long long mid = (a + b) / 2;
   merge_sort(a, mid);
   merge_sort(mid + 1, b);
   int x = a, y = mid + 1, z = a;
   while(x <= mid and y <= b) {
-    if(arr[x] < arr[y]) {
+    if(arr[x] <= arr[y]) {
       tmp[z++] = arr[x++];
     }
     else {
-      ans++;
+      ans += y - z;
       tmp[z++] = arr[y++];
     }
   }

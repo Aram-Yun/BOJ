@@ -15,21 +15,21 @@ int main(void) {
   vector<int> v(n);
   for(auto& x : v) cin >> x;
   while(q--) {
-    int tmp, ans = 0, ans1 = 0;
-    cin >> tmp;
-    if(tmp == 1) {
-      int a, b;
+    int input;
+    cin >> input;
+    if(input == 1) {
+      ll a, b, sum = 0;
       cin >> a >> b;
-      for(int i = a; i <= b; i++) ans += i;
-      cout << ans << endl;
-      swap(a, b);
+      for(int i = a; i <= b; ++i) sum += v[i - 1];
+      cout << sum << endl;
+      swap(v[a - 1], v[b - 1]);
     }
     else {
-      int a, b, c, d;
+      ll a, b, c, d, sum = 0;
       cin >> a >> b >> c >> d;
-      for(int i = a; i <= b; i++) ans += i;
-      for(int i = c; i <= d; i++) ans1 += i;
-      cout << ans - ans1 << endl;
+      for(int i = a; i <= b; ++i) sum += v[i - 1];
+      for(int i = c; i <= d; ++i) sum -= v[i - 1];
+      cout << sum << endl;
     }
   }
 }

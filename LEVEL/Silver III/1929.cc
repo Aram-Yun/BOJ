@@ -17,8 +17,6 @@ int main(void) {
     max = i; 
     break;
   }
-  for(int i = 2; i < max; ++i) {
-    for(int j = i * i; j <= N; j += i) cnt[j] = true;
-  }
+  for(int i = 2; i < max; ++i) for(int j = i * i; j <= N; j += i) cnt[j] = true;
   for(int i = M; i <= N; ++i) if(!cnt[i]) cout << i << ' ';
 }

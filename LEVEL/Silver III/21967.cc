@@ -25,3 +25,4 @@ int main(void) {
   if(max_len == 1) max_len = 0;
   cout << max_len;
 }
+
